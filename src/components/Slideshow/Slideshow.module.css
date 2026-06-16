@@ -1,0 +1,713 @@
+.container {
+    height: 100dvh;
+    min-height: 650px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: var(--black);
+    padding:4rem 4rem;
+  }
+
+
+  .grainOverlay {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assets/black-felt.png");
+  background-repeat: repeat;
+  opacity: 0.11;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  filter: invert(1);
+  z-index: 2;
+}
+  
+
+.slideContainer{
+    height: calc(100% - 12rem);
+    width: calc(100% - 8rem);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 10px;
+
+    box-shadow:  0 0 15px var(--glow-colour),
+  0 0 4px rgba(255, 255, 255, 0.6),
+  0 0 7px rgba(231, 231, 231, 0.4);
+}
+
+
+
+.videoContainer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  pointer-events: none;
+
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  mix-blend-mode: multiply;
+  pointer-events: none;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1) 0%,
+       rgba(0, 0, 0, 0.8) 2%,
+      rgba(0, 0, 0, 0.12) 12%,
+    rgba(0, 0, 0, 0.12) 90%,
+      rgba(0, 0, 0, 0.8) 96%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    /* linear-gradient(
+      to bottom,
+      black 0%,
+      black 8%,
+      transparent 15%,
+      transparent 85%,
+      black 92%,
+      black 100%
+    ); */
+
+  mask-composite: add;
+}
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    
+  }
+
+  .slideInner {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    position: relative;
+  }
+
+  /*Burnt Toast Styling */
+
+  #burntToast {
+    background-color: #8b824f;
+    
+  }
+
+    #burntToast > .slideInner >  .logoContainer > .heroTitle {
+    color:var(--beige);
+  }
+
+  #burntToast> .slideInner >  .logoContainer > .heroOutline  {
+    -webkit-text-stroke: 3.5px var(--beige);
+  }
+
+  /*Prolifica Styling */
+
+  #prolifica {
+    background-color: #111;
+    
+  }
+
+    #prolifica > .slideInner >  .logoContainer > .heroTitle {
+    color:#fff;
+  }
+
+  #prolifica> .slideInner >  .logoContainer > .heroOutline  {
+    -webkit-text-stroke: 3.5px #fff;
+  }
+
+  /*Rhys Lewis Styling*/
+  #rhysLewis{
+ background-color:#afa3be;
+  }
+
+  #rhysLewis > .slideInner >  .logoContainer > .heroTitle {
+    color:var(--text-color);
+  }
+
+  #rhysLewis> .slideInner >  .logoContainer > .heroOutline  {
+    -webkit-text-stroke: 3.5px var(--text-color);
+  }
+
+
+  /*Steph Styling*/
+  #stephMarziano{
+    background-color:#f03f50;
+  }
+
+ 
+
+  #stephMarziano > .slideInner >  .logoContainer > .heroTitle {
+    color:var(--accent-color);
+  }
+
+  #stephMarziano> .slideInner >  .logoContainer > .heroOutline  {
+    -webkit-text-stroke: 3.5px var(--accent-color);
+  }
+
+
+/*LDN Elektric Styling */
+   #ldnElectrik{
+    background-color: #2d2b29;;
+  }
+
+
+  #ldnElectrik > .slideInner >  .logoContainer > .heroTitle {
+    color:#1fa76a;
+    
+  }
+
+ #ldnElectrik >.slideInner >  .logoContainer > .heroOutline  {
+    -webkit-text-stroke: 3.5px #1fa76a;
+  }
+
+  
+
+  /*Daydream Cafe Styling*/
+
+#daydreamCafe{
+    background-color:#FF6F61;
+  }
+
+
+  #daydreamCafe >.slideInner >  .logoContainer > .heroTitle {
+    color: var(--teal);
+  }
+
+   #daydreamCafe >.slideInner > .logoContainer > .heroOutline  {
+    -webkit-text-stroke: 3.5px  var(--teal);
+  }
+
+
+  
+
+
+
+  
+ 
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+  }
+  
+
+  .logoContainer{
+    position: block;
+    display: flex;
+    padding-top: 10%;
+    padding-left: 8%;
+    flex-direction: column;
+    position: fixed;
+    z-index: 3;
+    color:var(--black);
+    background-color: transparent;
+    cursor: pointer;
+ 
+
+    
+      grid-area: 1 / 1 / 4 / 3;
+      z-index: 4;
+      transform: rotate(-2deg);
+
+  }
+
+  .logoContainer > h1{
+    line-height: 0.8;
+  }
+
+  .heroTitle, .heroOutline{
+    font-size: clamp(5rem, 8vw, 9rem);
+  }
+  .heroTitle {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .heroOutline {
+    font-weight: bold;
+    color: transparent;
+   /* -webkit-text-stroke: 2px var(--black);  Creates the outline effect */
+    text-transform: uppercase;
+  }
+
+
+  .roundContainer{
+    height:25dvh;
+    min-height: 200px;
+    aspect-ratio:1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    grid-area: 8 / 8 / 9 / 9;
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  .round{
+    height: 100%;
+    width:auto;
+  }
+
+
+  .round, .landscape, .landscapeAlt{
+   
+  filter: contrast(1.1) brightness(0.95) saturate(1.1) sepia(0.1);
+
+  }
+
+
+  
+
+  .landscapeContainer{
+    width:40dvw;
+    /* min-width: 570px; */
+    aspect-ratio: 16/7;
+    overflow: hidden;
+    grid-area: 7 / 3 / 11 / 7;
+    z-index: 2;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     border-radius: 10px;
+  }
+
+  .landscape{
+    width:100%;
+    height: auto;
+    object-fit: cover;
+       border-radius: 10px;
+
+  }
+
+  .landscapeAltContainer{
+    width:50dvw;
+    /* min-width: 680px; */
+    aspect-ratio: 16/7;
+    overflow: hidden;
+    grid-area: 3 / 5 / 6 / 6;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .landscapeAlt{
+   width:100%;
+   height:auto;
+      border-radius: 10px;
+  }
+
+  .landscapeContainer,
+.landscapeAltContainer,
+.roundContainer {
+  position: absolute;
+}
+
+
+
+
+  .image {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .overlay{
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    pointer-events: none;
+  }
+
+  
+
+
+  .swipeHint {
+    
+ 
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    color: var(--beige);
+    opacity: 0.7;
+    pointer-events: none;
+    animation: fadeHint 2s ease-in-out infinite;
+    z-index: 10;
+  }
+  
+  .chevron {
+    font-size: 2rem;
+    animation: bounce 1.5s ease-in-out infinite alternate;
+  }
+  
+  .hintText {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(5px);
+    }
+  }
+  
+  @keyframes fadeHint {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+ 
+
+   .nav > a > h1{
+    font-size: 2rem;   
+    color:var(--beige);
+    font-style: italic;
+    mix-blend-mode: difference;
+  }
+
+  .nav{
+    cursor: pointer;
+    pointer-events: auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap:1rem;
+    padding:2rem;
+  }
+  .nav > a {
+    text-decoration: none;
+  }
+
+
+  .nav h1 {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+      transition: text-shadow 0.3s ease-in-out;
+  }
+
+
+
+  .nav h1:hover {
+      text-shadow:
+  0 0 2px rgba(255, 255, 255, 0.844),
+  0 0 6px rgba(255, 255, 255, 0.6),
+  0 0 8px rgba(231, 231, 231, 0.4);
+
+  
+}
+  
+  /* .nav h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; 
+    width: 100%;
+    height: 2px;
+    background-color: currentColor; 
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav h1:hover::after {
+    transform: scaleX(1);
+  } */
+
+
+  .slideControls {
+  position: absolute;
+  
+  left:0;
+  width: 100%;
+  bottom: 1rem;
+  padding: 0.5rem 1rem;
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center;
+  gap: 4rem;
+
+ }
+
+ .hand{
+  height: 4rem;
+  width: auto;
+  cursor: pointer;
+ 
+ }
+
+ 
+
+ #left{
+  transform: scaleX(-1);
+
+   animation: handWaveLeft 1.5s ease-in-out infinite alternate;
+ }
+
+ #right{
+   animation: handWaveRight 1.5s ease-in-out infinite alternate;
+ }
+
+  @keyframes handWaveRight {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(3deg);
+    }
+
+  }
+
+  #left:hover, #left:focus-visible {
+    animation-play-state: paused;
+  
+
+  }
+
+  #right:hover, #right:focus-visible {
+    animation-play-state: paused;
+
+    
+  }
+
+
+
+  @keyframes handWaveLeft {
+    0% {
+      transform: scaleX(-1) rotate(0deg);
+    }
+    100% {
+      transform: scaleX(-1) rotate(3deg);
+    }
+
+  }
+
+ .buttons{
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+
+ }
+
+.slideButton {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--black);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--black);
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+  transition:  0.5s ease-in-out;
+}
+
+.slideButton:hover,
+.slideButton:focus-visible {
+  transform: scale(1.02);
+       box-shadow:
+  0 0 2px rgba(28, 16, 16, 0.844),
+  0 0 6px rgba(19, 5, 5, 0.6),
+  0 0 8px rgba(0, 0, 0, 0.516);
+  
+}
+
+.slideCount {
+  min-width: 4.5rem;
+  text-align: center;
+  font: inherit;
+  color:var(--beige);
+}
+
+.overlayTextContainer{
+ position: absolute;
+ bottom: 0.5rem;
+ left: 50%;
+ transform: translateX(-50%);
+  }
+  
+  .overlayText{
+  
+      text-align: left;
+      color:var(--beige);
+      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)) luminosity(1.2);
+      z-index: 10;
+  
+  }
+
+  .overlayText > h2{
+    font-size: 1.3rem;
+  }
+
+  .overlayCount{
+    position: absolute;
+    bottom:1rem;
+    right:2rem;
+    color: var(--beige);
+    font-size: clamp(3rem, 5vw, 5rem);
+    z-index: 0;
+  }
+
+  .infoText:hover {
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+
+ 
+
+
+
+
+
+
+  @media screen and (max-width: 1024px) and (min-width: 769px) {
+
+   
+    .content {
+      grid-template-columns: repeat(15, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+      padding: 1rem;
+    }
+    
+  
+    .logoContainer {
+      grid-area: 1 / 1 / 3 / 5;
+
+    }
+  
+    .roundContainer {
+      grid-area: 6 / 6 / 8 / 8;
+      height: 28dvh;
+    }
+  
+    .landscapeAltContainer {
+      grid-area: 4 / 2 / 8 / 9;
+    }
+  
+    .landscapeContainer {
+      grid-area: 8 / 3 / 11 / 8;
+    }
+  }
+
+ 
+
+  
+  @media screen and (max-width: 768px) {
+     .overlay{
+      width:100%;
+      padding:1rem 1rem;
+    }
+    .content {
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+    }
+
+    .nav{
+      padding: 1.5rem 1rem;
+    }
+  
+    .logoContainer {
+      grid-area: 3 / 1 / 5 / 6;
+      position: relative;
+    
+    }
+    .logoContainer > h1{
+      font-size: clamp(3rem, 8vw,5rem);
+    }
+
+    #prolifica > .slideInner >  .logoContainer > .heroOutline  {
+      -webkit-text-stroke: 1.5px #fff;;
+    }
+
+     #rhysLewis > .slideInner >  .logoContainer > .heroOutline  {
+      -webkit-text-stroke: 1.5px var(--text-color);
+    }
+
+    #stephMarziano > .slideInner >  .logoContainer > .heroOutline  {
+      -webkit-text-stroke: 1.5px var(--accent-color);
+    }
+  #ldnElectrik > .slideInner > .logoContainer > .heroOutline  {
+      -webkit-text-stroke: 1.5px #1fa76a;
+      
+    }
+   #daydreamCafe > .slideInner > .logoContainer > .heroOutline  {
+      -webkit-text-stroke: 1.5px var(--teal);
+      padding-right:100px;
+    }
+  
+    .roundContainer {
+      grid-area: 7 / 7 / 9 / 9;
+      margin-bottom: 1rem;
+      width: 28dvw;
+      height: auto;
+      min-height: 10px;
+
+     
+    }
+  
+    .landscapeAltContainer {
+      grid-area: 5 / 2 / 7 / 8;
+      width: 100%;
+      aspect-ratio: 16/8;
+      min-width: 0;
+      width:80dvw;
+    }
+  
+    .landscapeContainer {
+      grid-area: 7 /3 / 11 / 7;
+      width: 100%;
+      aspect-ratio: 16/8;
+      min-width: 0;
+      width:75dvw;
+    }
+  
+
+    .slideControls {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+  
+  

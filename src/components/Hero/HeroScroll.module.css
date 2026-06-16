@@ -1,0 +1,142 @@
+.grainOverlay {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/assets/black-felt.png");
+  background-repeat: repeat;
+  opacity: 0.11;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  filter: invert(1);
+  z-index: 2;
+}
+
+
+.hero {
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:90vh;
+    text-align: center;
+    gap:0;
+    background-color: var(--black);
+    line-height: 0.9;
+    position: relative;
+  }
+
+
+
+ .heroText{
+  /* background-color: var(--contrast-color); */
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+ }
+
+  .heroTitle {
+    font-size: clamp(7rem, 14vw, 15rem);
+    font-weight: bold;
+    font-style: italic;
+    color:var(--beige);
+    color:var(--contrast-color);
+    text-transform: uppercase;
+    padding-right: 2rem;
+    line-height: 0.75;
+  }
+
+  .logoContainer{
+  
+    transform: rotate(-1deg);
+  }
+  
+  .outline {
+    font-style: normal;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--contrast-color); /* Creates the outline effect */
+  }
+
+.subtitle{
+  opacity:0;
+  color: var(--beige);
+  font-weight: 100;
+  letter-spacing:6px;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+
+.scrollDown{
+  position: absolute;
+  bottom: 5%;
+}
+
+  .scrollDown:nth-child(1)
+  {
+     
+      left: 45%;
+      transform: translate(-45%,-50%);
+  }
+  .scrollDown:nth-child(2)
+  {
+      left:55%;
+      transform: translate(-65%,-50%);
+  }
+  .scrollDown span:nth-child(2)
+  {
+      animation-delay: -0.2s;
+  }
+  .scrollDown span:nth-child(3)
+  {
+      animation-delay: -0.4s;
+  }
+  .scrollDown span
+  {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-bottom: 2px solid var(--beige);
+      border-right: 2px solid var(--beige);
+      transform: rotate(45deg);
+      margin: -10px;
+      animation: animate 2s infinite;
+  }
+
+  @keyframes animate
+  {
+      0%
+    {
+          opacity: 0;
+          transform: rotate(45deg) translate(-20px,-20px);
+      }
+      50%
+    {
+          opacity: 1;
+      }
+      100%
+    {
+          opacity: 0;
+          transform: rotate(45deg) translate(20px,20px);
+      }
+  }
+
+  @media only screen and (max-width:599px){
+    .heroTitle{
+      font-size: clamp(4.5rem, 6vw, 8rem);
+      padding-right: 1.5rem;
+      
+    }
+    .scrollDown:nth-child(1){
+      bottom:10%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .scrollDown:nth-child(2){
+      display: none;
+    }
+  }

@@ -1,0 +1,93 @@
+/* Reset and Global Styles */
+:root {
+  --blue: #0047AB;
+  --beige: #FFF5D7;
+  --red: #ff2f40;
+  --black:#1a1516;
+  --teal:#00958e;
+
+
+  --font-primary: 'Sora', sans-serif;
+
+  --bg-color: var(--beige);
+  --text-color: #000;
+  --accent-color: var(--blue);
+  --contrast-color: var(--red);
+}
+/*--red: #FF4B5A*/
+/* CSS Reset (Minimal) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* hide scroll bars */
+html, body {
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--black);
+   background-image: url("/src/assets/black-felt.png");
+   background-repeat: repeat;
+
+ 
+  /* scroll-snap-type: y proximity; */
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+/* hide scroll bars */
+
+body {
+
+  color: var(--text-color);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  /* overflow-x: hidden; */
+}
+a{
+  text-decoration: none;
+  color: currentColor;
+}
+
+a:visited{
+  color:currentColor
+}
+
+h2{
+  font-size: clamp(1.025rem, 1.462rem + 0.113vw, 2.438rem);
+}
+
+
+h3{
+  font-size: clamp(1.025rem, 1.262rem + 0.113vw, 2.438rem);
+  
+}
+
+h3, h2{
+  font-weight: 500;
+}
+
+.grainOverlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/src/assets/black-felt.png");
+  background-repeat: repeat;
+  opacity: 0.08;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  filter: invert(1);
+}
+
