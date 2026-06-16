@@ -32,9 +32,11 @@ export default function AboutMe() {
       <section className={styles.About} id="about" data-nav-section="about">
         <div className={styles.grainOverlay} />
         <div className={styles.logoContainer}>
-          {" "}
-          <h1 className={styles.title}>Dead</h1>
-          <h1 className={`${styles.title} ${styles.outline}`}>Culture</h1>
+          <img
+            src={"/src/assets/logoBeige.png"}
+            className={styles.logoImg}
+            alt="Dead Culture Logo"
+          />
         </div>
         <div className={styles.container} ref={aboutRef}>
           {" "}

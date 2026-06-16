@@ -9,6 +9,7 @@ export default function Nav() {
     { name: "About", href: "#about", id: "about" },
     { name: "Portfolio", href: "#portfolio", id: "portfolio" },
     { name: "Contact", href: "#contact", id: "contact" },
+    { name: "Reviews", href: "#reviews", id: "reviews" },
   ];
 
   const [active, setActive] = useState(null);
