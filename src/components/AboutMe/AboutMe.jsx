@@ -74,7 +74,8 @@ export default function AboutMe() {
                   </h1>
                   <p>
                     I'm always looking for new interesting project to work on.
-                    If you have an idea or just want to say hi, to get in touch.
+                    If you have an idea or just want to say hi then get in
+                    touch.
                   </p>
                   <a
                     className={styles.emailLink}

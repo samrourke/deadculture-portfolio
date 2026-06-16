@@ -6,6 +6,7 @@ import SlideShow from "./components/Slideshow/Slideshow";
 import SlideShowNav from "./components/Slideshow/SlideshowNav";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
+import Contact from "./components/Contact/Contact";
 
 import "./App.css";
 
@@ -33,6 +34,7 @@ function App() {
       <AboutMe />
 
       <SlideShowNav onhandleSelect={handleSelectWork} modalState={modalOpen} />
+      <Contact />
 
       <Footer />
 

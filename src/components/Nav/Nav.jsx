@@ -8,6 +8,7 @@ export default function Nav() {
   const navLinks = [
     { name: "About", href: "#about", id: "about" },
     { name: "Portfolio", href: "#portfolio", id: "portfolio" },
+    { name: "Contact", href: "#contact", id: "contact" },
   ];
 
   const [active, setActive] = useState(null);
