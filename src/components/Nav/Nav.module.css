@@ -25,13 +25,14 @@
 
  .navItem{
 color: var(--beige);
-     text-shadow:
+     /* text-shadow:
   0 0 1px rgba(255, 75, 90, 0.4),
   0 0 2px rgba(255, 75, 90, 0.6),
-  0 0 4px rgba(255, 75, 90, 0.4);
+  0 0 4px rgba(255, 75, 90, 0.4); */
   }
  
 
   .navItem:hover, .active{
     color: var(--contrast-color);
+
   }

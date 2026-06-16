@@ -3,6 +3,7 @@ import styles from "./Footer.module.css";
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+      <div className={styles.grainOverlay} />
       <div className={styles.top}>
         <img
           className={styles.logo}

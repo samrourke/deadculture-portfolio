@@ -21,7 +21,7 @@ export default function Reviews() {
       stars: 5,
     },
     {
-      name: "Colin Schavarein",
+      name: "Emma Townsend",
       review:
         "I couldn't be happier with the website that Dead Culture created for my business. From the very beginning, Sam was professional, responsive, creative, and genuinely invested in bringing my vision to life... I've received countless compliments on the website, and it has already made a significant positive impact on my business",
       stars: 5,

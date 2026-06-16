@@ -62,7 +62,7 @@
 
 .marquee {
   width: 100%;
-  overflow: hidden;
+
   position: relative;
   margin-top: 4rem;
 }
@@ -104,7 +104,7 @@
   width: 450px;
   min-height: 280px;
 
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid var(--beige);
 
   padding: 2rem;
 
@@ -118,7 +118,7 @@
 }
 
 .review:hover {
-  transform: translateY(-10px);
+  transform: translateY(-2px);
 }
 
 .reviewText {
@@ -132,12 +132,7 @@
   font-size: 0.85rem;
 }
 
-.stars {
-  color: var(--red);
-  display: flex;
-  gap: 0.3rem;
-  font-size: 1.2rem;
-}
+
 
   .stars{
     display: flex;

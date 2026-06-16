@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import styles from "./SlideShow.module.css";
@@ -19,6 +19,32 @@ export default function SlideShow({ onhandleSelect, modalState }) {
       onhandleSelect(projectId);
     }
   }
+
+  const [random, setRandom] = useState(2300);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setRandom(Math.random() * 5000);
+    }, random);
+
+    return () => clearTimeout(timeout);
+  }, [random]);
+
+  useEffect(() => {
+    const sections = gsap.utils.toArray(`.${styles.slide}`);
+
+    gsap.to(sections[currentIndexRef.current], {
+      y: 12,
+      opacity: 0.2,
+      duration: 0.1,
+    });
+
+    gsap.to(sections[currentIndexRef.current], {
+      y: 0,
+      opacity: 1,
+      duration: 0.2,
+    });
+  }, [random]);
 
   function handlePreviousSlide(event) {
     event.stopPropagation();
@@ -54,6 +80,8 @@ export default function SlideShow({ onhandleSelect, modalState }) {
       const imagesAlt = gsap.utils.toArray(`.${styles.landscapeAlt}`);
       const titles = gsap.utils.toArray(`.${styles.title}`);
       const wrap = gsap.utils.wrap(0, sections.length);
+
+      const current = currentIndexRef.current;
 
       if (sections.length === 0) return undefined;
 
@@ -274,21 +302,31 @@ export default function SlideShow({ onhandleSelect, modalState }) {
       </div>
       <div className={styles.slideControls}>
         <div className={styles.buttons}>
-          {/* <button
-            className={styles.slideButton}
-            type="button"
-            onClick={handlePreviousSlide}
-            aria-label="View previous project"
-          ></button>
+          <div className={styles.buttonOverflowContainer}>
+            {" "}
+            <button
+              className={styles.navButton}
+              onClick={handlePreviousSlide}
+              aria-label="View previous project"
+            >
+              <p className={styles.buttonText}>PREV</p>
+              <p className={styles.arrow}> &larr;</p>
+            </button>
+          </div>
 
-         
+          <div className={styles.buttonOverflowContainer}>
+            {" "}
+            <button
+              className={styles.navButton}
+              onClick={handleNextSlide}
+              aria-label="View next project"
+            >
+              <p className={styles.buttonText}>NEXT</p>
+              <p className={styles.arrow}> &rarr;</p>
+            </button>
+          </div>
 
-          <button
-            className={styles.slideButton}
-            type="button"
-            aria-label="View next project"
-          ></button> */}
-          <img
+          {/* <img
             onClick={handlePreviousSlide}
             src="/hand.png"
             alt="Previous arrow icon"
@@ -297,10 +335,6 @@ export default function SlideShow({ onhandleSelect, modalState }) {
             aria-label="View previous project"
           />
 
-          {/* <div className={styles.slideCount} aria-live="polite">
-            <span ref={countRef}>1</span>
-            <span> / {projects.length}</span>
-          </div> */}
           <img
             onClick={handleNextSlide}
             src="/hand.png"
@@ -308,7 +342,7 @@ export default function SlideShow({ onhandleSelect, modalState }) {
             id={styles.right}
             className={styles.hand}
             aria-label="View next project"
-          />
+          /> */}
         </div>
       </div>
 
