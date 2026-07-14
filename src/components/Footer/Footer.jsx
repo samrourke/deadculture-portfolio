@@ -1,27 +1,54 @@
+"use client";
+
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+
 import styles from "./Footer.module.css";
 
 export default function Footer() {
-  return (
-    <footer className={styles.footer}>
-      <div className={styles.grainOverlay} />
-      <div className={styles.top}>
-        <img
-          className={styles.logo}
-          src="./src/assets/logoBeige.png"
-          alt="Dead Culture Logo"
-        />
-        <p>Design / Development / Experience</p>
-      </div>
+  const marquee = [
+    "bold minimalism",
+    "web design",
+    "development",
+    "SEO",
+    "branding",
+  ];
 
-      <div className={styles.bottom}>
-        <div className={styles.middle}>
-          <h2>Available for freelance projects</h2>
-          <h2>
+  useEffect(() => {
+    const track = trackRef.current;
+
+    gsap.to(track, {
+      xPercent: -50,
+      duration: 30,
+      repeat: -1,
+      ease: "none",
+    });
+  }, []);
+
+  const trackRef = useRef(null);
+  return (
+    <>
+      <footer className={styles.footer}>
+        <div className={styles.grainOverlay} />
+        <div className={styles.top}>
+          <img
+            className={styles.logo}
+            src="./src/assets/logoBeige.png"
+            alt="Dead Culture Logo"
+          />
+          <p>Design / Development / Experience</p>
+        </div>
+
+        <div className={styles.bottom}>
+          {/* <div className={styles.middle}>
+          <h1>Get In Touch</h1>
+          <p>Available for freelance projects</p>
+          <p>
             {" "}
             <a href="mailto:info@deadculture.co.uk">info@deadculture.co.uk</a>
-          </h2>
-        </div>
-        {/* <div className={styles.links}>
+          </p>
+        </div> */}
+          {/* <div className={styles.links}>
           <h2>
             <a href="#">Instagram</a>
           </h2>
@@ -30,8 +57,9 @@ export default function Footer() {
           </h2>
         </div> */}
 
-        <p>© 2026 Dead Culture</p>
-      </div>
-    </footer>
+          <p>© 2026 Dead Culture</p>
+        </div>
+      </footer>
+    </>
   );
 }
