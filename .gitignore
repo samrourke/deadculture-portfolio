@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+public/video.mp4
+public/video.mov
+public/video-scale.mp4  
+
+apppswrd.png
