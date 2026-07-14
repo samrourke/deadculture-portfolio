@@ -38,7 +38,7 @@ function App() {
       <Contact />
       <Reviews />
 
-      <Footer />
+      {/* <Footer /> */}
 
       <Modal
         isOpen={modalOpen}
