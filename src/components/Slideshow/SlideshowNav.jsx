@@ -24,7 +24,7 @@ export default function SlideShow({ onhandleSelect, modalState }) {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setRandom(Math.random() * 5000);
+      setRandom(Math.random() * 9000);
     }, random);
 
     return () => clearTimeout(timeout);
@@ -35,7 +35,7 @@ export default function SlideShow({ onhandleSelect, modalState }) {
 
     gsap.to(sections[currentIndexRef.current], {
       y: 12,
-      opacity: 0.2,
+      opacity: 0.4,
       duration: 0.1,
     });
 
@@ -79,6 +79,7 @@ export default function SlideShow({ onhandleSelect, modalState }) {
       const images = gsap.utils.toArray(`.${styles.landscape}`);
       const imagesAlt = gsap.utils.toArray(`.${styles.landscapeAlt}`);
       const titles = gsap.utils.toArray(`.${styles.title}`);
+      const imagesRound = gsap.utils.toArray(`.${styles.round}`);
       const wrap = gsap.utils.wrap(0, sections.length);
 
       const current = currentIndexRef.current;
@@ -91,6 +92,8 @@ export default function SlideShow({ onhandleSelect, modalState }) {
       gsap.set(images[0], { xPercent: 0 });
       gsap.set(imagesAlt, { xPercent: -100 });
       gsap.set(imagesAlt[0], { xPercent: 0 });
+      // gsap.set(imagesRound, { xPercent: -100 });
+      // gsap.set(imagesRound[0], { xPercent: 0 });
 
       gsap.set(containerRef.current, {
         "--glow-colour": portfolio[0].glow,
@@ -107,23 +110,17 @@ export default function SlideShow({ onhandleSelect, modalState }) {
         animatingRef.current = true;
 
         const tl = gsap.timeline({
-          defaults: { duration: 1, ease: "expo.inOut" },
+          defaults: { duration: 1.2, ease: "expo.inOut" },
           onComplete: () => {
             animatingRef.current = false;
           },
         });
 
-        // gsap.to(containerRef.current, {
-        //   "--glow-colour": project.glow,
-        //   duration: 1,
-        //   ease: "power2.inOut",
-        // });
-
         tl.fromTo(
           titles[index],
-          { yPercent: 100 * direction, opacity: 0 },
+          { yPercent: 50 * direction, opacity: 0 },
           { yPercent: 0, opacity: 1 },
-          0,
+          0.1,
         )
           .fromTo(
             sections[index],
@@ -141,13 +138,19 @@ export default function SlideShow({ onhandleSelect, modalState }) {
             images[index],
             { xPercent: 125 * direction, scaleX: 1.5, scaleY: 1.3 },
             { xPercent: 0, scaleX: 1, scaleY: 1 },
-            0,
+            0.18,
           )
           .fromTo(
             imagesAlt[index],
             { xPercent: 125 * direction, scaleX: 1.5, scaleY: 1.3 },
             { xPercent: 0, scaleX: 1, scaleY: 1 },
-            0,
+            0.12,
+          )
+          .fromTo(
+            imagesRound[index],
+            { yPercent: 50 * direction, opacity: 0 },
+            { yPercent: 0, opacity: 1 },
+            0.1,
           )
           .call(
             () => {
