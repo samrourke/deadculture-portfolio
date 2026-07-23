@@ -20,6 +20,7 @@ export default function SlideShow({ onhandleSelect, modalState }) {
   /*Use a Ref for modalState so that the Observer always has the updated value
 otherwise it gets frozen at 'false' after initial render and never sees the new value
 */
+
   const modalStateRef = useRef(modalState);
   useEffect(() => {
     modalStateRef.current = modalState;

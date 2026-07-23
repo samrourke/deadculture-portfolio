@@ -88,14 +88,14 @@ export default function Contact() {
               <button type="submit" className={styles.submitButton}>
                 <p className={styles.submitText}>Send</p>
               </button>
-
-              {/* <div className={styles.logoDiv}>
-            <img src="/icon.png" className={styles.logo} alt="Logo" />
-          </div> */}
             </form>
           </div>
         </div>
       </div>
+      <p className={styles.copyright}>
+        Copyright © {new Date().getFullYear()} Dead Culture. All rights
+        reserved.
+      </p>
     </section>
   );
 }
