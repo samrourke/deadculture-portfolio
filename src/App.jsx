@@ -35,8 +35,8 @@ function App() {
       <AboutMe />
 
       <SlideShowNav onhandleSelect={handleSelectWork} modalState={modalOpen} />
-      <Contact />
       <Reviews />
+      <Contact />
 
       {/* <Footer /> */}
 
