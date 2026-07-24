@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import styles from "./SlideShow.module.css";
+import styles from "./Slideshow.module.css";
 import portfolio from "../../../portfolio";
 
 export default function SlideShow({ onhandleSelect, modalState }) {
