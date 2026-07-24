@@ -34,5 +34,6 @@ color: var(--beige);
 
   .navItem:hover, .active{
     color: var(--contrast-color);
+    filter: invert(1);
 
   }

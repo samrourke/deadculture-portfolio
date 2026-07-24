@@ -14,7 +14,7 @@ import "./App.css";
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const [selectedWork, setSelectedWork] = useState("Steph Marziano");
+  const [selectedWork, setSelectedWork] = useState("Burnt Toast");
 
   function handleSelectWork(item) {
     setSelectedWork(item);
@@ -37,8 +37,6 @@ function App() {
       <SlideShowNav onhandleSelect={handleSelectWork} modalState={modalOpen} />
       <Reviews />
       <Contact />
-
-      {/* <Footer /> */}
 
       <Modal
         isOpen={modalOpen}
