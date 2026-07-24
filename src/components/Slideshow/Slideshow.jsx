@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Observer from "gsap/Observer";
-import styles from "./SlideShow.module.css";
+import styles from "./Slideshow.module.css";
 import portfolio from "../../../portfolio";
 
 gsap.registerPlugin(Observer);
